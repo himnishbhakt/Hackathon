@@ -1,6 +1,6 @@
 import React from 'react';
-import StudentApp from './components/StudentApp';
-import TeacherDashboard from './components/TeacherDashboard';
+import StudentApp from './StudentApp';
+import TeacherDashboard from './TeacherDashboard';
 
 function App() {
   return (

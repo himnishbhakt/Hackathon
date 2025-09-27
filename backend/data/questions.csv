@@ -1,7 +1,7 @@
 unit_id,unit_name,question
-1,Stoichiometry,Calculate the number of moles in 25 g of NaCl.
-1,Stoichiometry,If 2.0 L of H2 reacts with O2, how many grams of water form?
-2,Thermodynamics,Determine ΔH for the reaction of H2 and Cl2 to form HCl.
-2,Thermodynamics,Explain why entropy increases in a spontaneous reaction.
-3,Equilibrium,Predict the effect on the equilibrium position if concentration of reactant increases.
-3,Equilibrium,Calculate the equilibrium constant Kc for N2 + 3H2 ⇌ 2NH3.
+1,Stoichiometry,"Calculate the number of moles in 25 g of NaCl."
+1,Stoichiometry,"If 2.0 L of H2 reacts with O2, how many grams of water form?"
+2,Thermodynamics,"Determine ΔH for the reaction of H2 and Cl2 to form HCl."
+2,Thermodynamics,"Explain why entropy increases in a spontaneous reaction."
+3,Equilibrium,"Predict the effect on the equilibrium position if concentration of reactant increases."
+3,Equilibrium,"Calculate the equilibrium constant Kc for N2 + 3H2 ⇌ 2NH3."

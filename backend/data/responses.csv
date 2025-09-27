@@ -1,1 +1,6 @@
-student_id,class,subject,unit_id,understanding_level,timestamp
+student_id,class,subject,unit_id,understanding_level,timestamp,topic
+1,APChem,Chemistry,4,red,2025-09-27 19:26:17.474986,Kinetics
+1,APChem,Chemistry,4,red,2025-09-27 19:26:18.707080,Kinetics
+1,APChem,Chemistry,4,yellow,2025-09-27 19:26:26.190872,Equilibrium
+1,APChem,Chemistry,4,green,2025-09-27 19:27:30.666420,Kinetics
+1,APChem,Chemistry,4,yellow,2025-09-27 19:27:35.394081,Kinetics
