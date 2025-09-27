@@ -2,7 +2,7 @@ import csv
 from datetime import datetime
 import os
 
-RESPONSES_FILE = "backend/data/responses.csv"
+RESPONSES_FILE = "data/responses.csv"
 
 if not os.path.exists(RESPONSES_FILE):
     with open(RESPONSES_FILE, "w", newline="") as f:
