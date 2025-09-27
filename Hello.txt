@@ -1,9 +1,37 @@
-from question_gen import generate_questions
+questions.csv
 
-# Test with a topic
-topic = "Quadratic Equations"
-questions = generate_questions(topic, difficulty="easy")
-print("Easy Questions:", questions)
+unit_id,unit_name,question
+1,Stoichiometry,Calculate the number of moles in 25 g of NaCl.
+1,Stoichiometry,If 2.0 L of H2 reacts with O2, how many grams of water form?
+2,Thermodynamics,Determine ΔH for the reaction of H2 and Cl2 to form HCl.
+2,Thermodynamics,Explain why entropy increases in a spontaneous reaction.
+3,Equilibrium,Predict the effect on the equilibrium position if concentration of reactant increases.
+3,Equilibrium,Calculate the equilibrium constant Kc for N2 + 3H2 ⇌ 2NH3.
 
-questions = generate_questions(topic, difficulty="hard")
-print("Hard Questions:", questions)
+
+from transformers import pipeline
+import pandas as pd
+
+# Zero-shot classification pipeline
+classifier = pipeline("zero-shot-classification", model="facebook/bart-large-mnli")
+
+# Read AP Chem questions
+df = pd.read_csv("questions.csv")
+
+# Define candidate topics and difficulties
+topic_candidates = ["Stoichiometry", "Thermodynamics", "Equilibrium", "Acid-Base", "Redox", "Kinetics"]
+difficulty_candidates = ["easy", "medium", "hard"]
+
+classified = []
+for q in df["question"]:
+    topic_pred = classifier(q, topic_candidates)["labels"][0]
+    diff_pred = classifier(q, difficulty_candidates)["labels"][0]
+    classified.append({
+        "question": q,
+        "topic": topic_pred,
+        "difficulty": diff_pred
+    })
+
+# Show results
+for c in classified:
+    print(c)
