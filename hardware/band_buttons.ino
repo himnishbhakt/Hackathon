@@ -1,25 +1,49 @@
-const int greenPin = 2;
-const int yellowPin = 3;
-const int redPin = 4;
+// Button pins
+const int button1 = 2; // Green
+const int button2 = 3; // Yellow
+
+// LED pins
+const int greenLED = 5;
+const int blueLED = 6;
+const int redLED = 7;
 
 void setup() {
-  pinMode(greenPin, INPUT_PULLUP);
-  pinMode(yellowPin, INPUT_PULLUP);
-  pinMode(redPin, INPUT_PULLUP);
+  pinMode(button1, INPUT_PULLUP);
+  pinMode(button2, INPUT_PULLUP);
+
+  pinMode(greenLED, OUTPUT);
+  pinMode(blueLED, OUTPUT);
+  pinMode(redLED, OUTPUT);
   Serial.begin(9600);
 }
 
 void loop() {
-  if(digitalRead(greenPin) == LOW){
-    Serial.println("green");
-    delay(500);
+  // Read buttons (LOW = pressed because of INPUT_PULLUP)
+  bool b1 = digitalRead(button1) == LOW;
+  bool b2 = digitalRead(button2) == LOW;
+
+  // Turn all LEDs off first
+  digitalWrite(greenLED, LOW);
+  digitalWrite(blueLED, LOW);
+  digitalWrite(redLED, LOW);
+
+  
+
+
+  // Logic: check both first
+  if (b1 && b2) {
+    digitalWrite(redLED, HIGH);  // Both pressed → red
+    Serial.println(3);           // Send 3
+    delay(150);                  // Debounce + avoid spamming
   }
-  if(digitalRead(yellowPin) == LOW){
-    Serial.println("yellow");
-    delay(500);
+  else if (b2) {                 // Button 2 only → blue
+    digitalWrite(blueLED, HIGH);
+    Serial.println(1);           // Send 1
+    delay(150);
   }
-  if(digitalRead(redPin) == LOW){
-    Serial.println("red");
-    delay(500);
+  else if (b1) {                 // Button 1 only → green
+    digitalWrite(greenLED, HIGH);
+    Serial.println(2);           // Send 2
+    delay(150);
   }
 }
